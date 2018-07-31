@@ -29,10 +29,10 @@ $(function() {
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
-        it('URLs are defined', function() {
-            for(let feed of allFeeds) {
+        it('URLs are defined', function() { 
+            for(let feed of allFeeds) { //loops thorugh all feeds
                 expect(feed.url).toBeDefined();
-                expect(feed.url.length).not.toBe(0);
+                expect(feed.url.length).not.toBe(0); 
             }
         });
 
@@ -43,7 +43,7 @@ $(function() {
 
         it('names are defined', function(){
             for(let feed of allFeeds) {
-                expect(feed.name).toBeDefined();
+                expect(feed.name).toBeDefined(); 
                 expect(feed.name.length).not.toBe(0);
             }
         });
@@ -52,7 +52,7 @@ $(function() {
 
     /* TODO: Write a new test suite named "The menu" */
     describe('The Menu', function() {
-        let body = $('body');
+        let body = $('body'); 
         /* TODO: Write a test that ensures the menu element is
          * hidden by default. You'll have to analyze the HTML and
          * the CSS to determine how we're performing the
@@ -60,7 +60,7 @@ $(function() {
          */
         
         it('menu hidden by default', function() {
-            expect(body.hasClass('menu-hidden')).toBe(true);
+            expect(body.hasClass('menu-hidden')).toBe(true); //if the body tag has class menu hidden, test will pass
         });
 
          /* TODO: Write a test that ensures the menu changes
@@ -69,8 +69,10 @@ $(function() {
           * clicked and does it hide when clicked again.
           */
          it('menu changes visibility when clicked', function() {
+             //after the menu icon is clicked once, menu-hidden class should be removed
             $('.menu-icon-link').trigger('click');
             expect(body.hasClass('menu-hidden')).toBe(false);
+            //after the menu icon is clicked again, menu-hidden should be added
             $('.menu-icon-link').trigger('click');
             expect(body.hasClass('menu-hidden')).toBe(true);
          });
@@ -89,7 +91,8 @@ $(function() {
         });
 
         it('there is at least a single .entry element within the .feed container', function(done) {
-            expect($('.entry .feed')).not.toBeNull(); 
+            //checks to see that .feed an .entry elements are not empty
+            expect($('.entry .feed')).not.toBeNull();  
             expect($('.entry .feed')).toBeDefined();
             done();
         });
