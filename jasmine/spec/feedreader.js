@@ -63,7 +63,7 @@ $(function() {
         // test 6: see if there is at least a single .entry element within the .feed container.
         it('there is at least a single .entry element within the .feed container', function() {
             //checks to see that an .entry elements in .feed are not empty
-            expect($('.feed').children().length).toBeGreaterThan(0);
+            expect($('.feed .entry').length).toBeGreaterThan(0);
          });
     });
 
@@ -74,10 +74,11 @@ $(function() {
         beforeEach(function (done) {
             loadFeed(0, function() { //loads original feed
                 firstFeed = $('.feed').html(); //stores the original feed's html 
-            });  
-            loadFeed(1, function(){ //loads a new feed 
-                done(); //calls function done(), after the new feed has loaded
-            });           
+              
+                loadFeed(1, function() { //loads a new feed 
+                    done(); //calls function done(), after the new feed has loaded
+                });           
+            });
         });
 
         it('new feed is different than previous feed', function() {
